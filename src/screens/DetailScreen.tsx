@@ -3,6 +3,7 @@ import React from 'react';
 import { ScrollView, View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import { RootStackParams } from '../navigation/StackNavigator';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useMovieDetails } from '../hooks';
 
 const screenHeight = Dimensions.get('screen').height;
 
@@ -12,6 +13,8 @@ export const DetailScreen = ({ route }: DetailsScreenProps) => {
 
     const movie = route.params;
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+    const { isLoading, movieFull, cast } = useMovieDetails(movie.id);
 
     return (
         <ScrollView>
@@ -37,7 +40,6 @@ export const DetailScreen = ({ route }: DetailsScreenProps) => {
                 />
             </View>
         </ScrollView>
-
     );
 };
 
