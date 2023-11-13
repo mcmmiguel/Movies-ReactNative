@@ -6,7 +6,6 @@ import { globalStyles } from '../../styles';
 import { MoviePoster, HorizontalSlider } from '../components';
 import Carousel from 'react-native-snap-carousel';
 
-
 const { width: windowWidth } = Dimensions.get('window');
 
 export const HomeScreen = () => {
