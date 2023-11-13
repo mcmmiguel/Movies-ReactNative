@@ -13,9 +13,8 @@ export const MoviePoster = ({ movie, height = 420, width = 300 }: MoviePosterPro
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
     return (
-        <View style={[{ height, width }, styles.mainContainer]}>
+        <View style={{ ...styles.mainContainer, height, width }}>
             <View style={styles.imageContainer}>
-
                 <Image
                     source={{ uri }}
                     style={styles.image}
@@ -35,12 +34,12 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 10,
         },
-        shadowOpacity: 0.5,
-        shadowRadius: 3.84,
+        shadowOpacity: 0.24,
+        shadowRadius: 7,
 
-        elevation: 5,
+        elevation: 9,
     },
     image: {
         flex: 1,
