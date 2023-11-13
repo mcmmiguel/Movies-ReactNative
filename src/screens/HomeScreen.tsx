@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import { useMovies } from '../hooks';
+import { globalStyles } from '../../styles';
 
 export const HomeScreen = () => {
 
@@ -8,7 +9,7 @@ export const HomeScreen = () => {
 
     if (isLoading) {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={globalStyles.appCenter}>
                 <ActivityIndicator color="red" size={100} />
             </View>
         );
