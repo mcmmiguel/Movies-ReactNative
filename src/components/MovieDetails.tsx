@@ -4,6 +4,8 @@ import { Cast, MovieFull } from '../interfaces';
 import Icon from 'react-native-vector-icons/Ionicons';
 import currencyFormatter from 'currency-formatter';
 import { globalStyles } from '../../styles';
+import { CastItem } from './CastItem';
+import { FlatList } from 'react-native-gesture-handler';
 
 interface MovieDetailsProps {
     movieFull: MovieFull;
@@ -33,8 +35,21 @@ export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
             <Text style={styles.overview}>{movieFull.overview}</Text>
 
             {/* Budget */}
-            <Text style={styles.subtitle}>Presupuesto</Text>
+            <Text style={styles.subtitle}>Budget</Text>
             <Text style={globalStyles.colorText}>{currencyFormatter.format(movieFull.budget, { code: 'USD' })} USD</Text>
+
+            {/* Cast*/}
+            <View style={styles.castContainer}>
+                <Text style={styles.subtitle}>Actors</Text>
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    data={cast}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => <CastItem actor={item} />}
+                    style={{ marginTop: 10 }}
+                />
+            </View>
         </>
     );
 };
@@ -61,5 +76,9 @@ const styles = StyleSheet.create({
     overview: {
         color: 'grey',
         fontSize: 16,
+    },
+    castContainer: {
+        marginTop: 10,
+        marginBottom: 100,
     },
 });
