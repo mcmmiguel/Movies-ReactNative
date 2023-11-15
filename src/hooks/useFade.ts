@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { Animated } from 'react-native';
 
-
 export const useFade = () => {
     const opacity = useRef(new Animated.Value(0.5)).current;
 

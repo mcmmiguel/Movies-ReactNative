@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { View, ActivityIndicator, Dimensions, StyleSheet, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useMovies } from '../hooks';
-import { globalStyles } from '../../styles';
-import { MoviePoster, HorizontalSlider, GradientBackground } from '../components';
 import Carousel from 'react-native-snap-carousel';
-import { getImageColors } from '../helpers';
 import { GradientContext } from '../context';
+import { useMovies } from '../hooks';
+import { getImageColors } from '../helpers';
+import { MoviePoster, HorizontalSlider, GradientBackground } from '../components';
+import { globalStyles } from '../../styles';
 
 const { width: windowWidth } = Dimensions.get('window');
 

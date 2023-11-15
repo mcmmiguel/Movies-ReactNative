@@ -1,11 +1,10 @@
 import React from 'react';
-import { ScrollView, View, Text, Image, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
+import { ScrollView, View, Text, Image, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { RootStackParams } from '../navigation/StackNavigator';
 import { StackScreenProps } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useMovieDetails } from '../hooks';
 import { MovieDetails } from '../components';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const screenHeight = Dimensions.get('screen').height;
 
@@ -55,7 +54,6 @@ export const DetailScreen = ({ route, navigation }: DetailsScreenProps) => {
                     />
                 </TouchableOpacity>
             </View>
-
         </ScrollView>
     );
 };

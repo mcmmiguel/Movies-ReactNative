@@ -1,16 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Cast, MovieFull } from '../interfaces';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import currencyFormatter from 'currency-formatter';
-import { globalStyles } from '../../styles';
 import { CastItem } from './CastItem';
-import { FlatList } from 'react-native-gesture-handler';
-
-interface MovieDetailsProps {
-    movieFull: MovieFull;
-    cast: Cast[];
-}
+import Icon from 'react-native-vector-icons/Ionicons';
+import { globalStyles } from '../../styles';
+import { MovieDetailsProps } from '../interfaces';
 
 export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
     return (
@@ -47,7 +41,7 @@ export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
                     data={cast}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => <CastItem actor={item} />}
-                    style={{ marginTop: 10 }}
+                    style={styles.flatlist}
                 />
             </View>
         </>
@@ -80,5 +74,8 @@ const styles = StyleSheet.create({
     castContainer: {
         marginTop: 10,
         marginBottom: 100,
+    },
+    flatlist: {
+        marginTop: 10,
     },
 });

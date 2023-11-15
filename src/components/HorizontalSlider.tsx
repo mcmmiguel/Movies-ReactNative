@@ -1,12 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { Movie } from '../interfaces/movieInterface';
 import { MoviePoster } from './MoviePoster';
-
-interface HorizontalSliderProps {
-    title?: string;
-    movies: Movie[];
-}
+import { HorizontalSliderProps } from '../interfaces';
 
 export const HorizontalSlider = ({ title, movies }: HorizontalSliderProps) => {
     const containerHeight = (title) ? 260 : 220;
@@ -25,6 +20,7 @@ export const HorizontalSlider = ({ title, movies }: HorizontalSliderProps) => {
         </View>
     );
 };
+
 const styles = StyleSheet.create({
     sliderContainer: {
     },

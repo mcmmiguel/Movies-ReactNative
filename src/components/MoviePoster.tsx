@@ -1,13 +1,7 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { Movie } from '../interfaces/movieInterface';
 import { useNavigation } from '@react-navigation/native';
-
-interface MoviePosterProps {
-    movie: Movie;
-    height?: number;
-    width?: number;
-}
+import { MoviePosterProps } from '../interfaces';
 
 export const MoviePoster = ({ movie, height = 420, width = 300 }: MoviePosterProps) => {
 

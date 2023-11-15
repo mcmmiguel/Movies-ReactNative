@@ -1,10 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { Cast } from '../interfaces';
-
-interface CastItemProps {
-    actor: Cast
-}
+import { CastItemProps } from '../interfaces';
 
 export const CastItem = ({ actor }: CastItemProps) => {
 
@@ -15,14 +11,14 @@ export const CastItem = ({ actor }: CastItemProps) => {
             {actor &&
                 <Image
                     source={{ uri }}
-                    style={{ width: 50, height: 50, borderRadius: 10 }}
+                    style={styles.image}
                 />
             }
             <View style={styles.actorInfo}>
-                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+                <Text style={{}}>
                     {actor.name}
                 </Text>
-                <Text style={{ fontSize: 16, color: '#212121' }}>
+                <Text style={{}}>
                     {actor.character}
                 </Text>
             </View>
@@ -49,8 +45,21 @@ const styles = StyleSheet.create({
         marginRight: 20,
         paddingRight: 10,
     },
+    image: {
+        width: 50,
+        height: 50,
+        borderRadius: 10,
+    },
     actorInfo: {
         marginLeft: 10,
         marginTop: 4,
+    },
+    actorName: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    character: {
+        fontSize: 16,
+        color: '#212121',
     },
 });

@@ -4,10 +4,7 @@ import { View, StyleSheet, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { GradientContext } from '../context';
 import { useFade } from '../hooks';
-
-interface GradientBackgroundProps {
-    children: JSX.Element | JSX.Element[];
-}
+import { GradientBackgroundProps } from '../interfaces';
 
 export const GradientBackground = ({ children }: GradientBackgroundProps) => {
 
@@ -22,10 +19,7 @@ export const GradientBackground = ({ children }: GradientBackgroundProps) => {
     }, [colors]);
 
     return (
-        <View style={{
-            flex: 1,
-            backgroundColor: '#084F6A',
-        }}>
+        <View style={styles.container}>
             <LinearGradient
                 colors={[prevColors.primary, prevColors.secondary, 'white']}
                 style={{ ...StyleSheet.absoluteFillObject }}
@@ -33,9 +27,7 @@ export const GradientBackground = ({ children }: GradientBackgroundProps) => {
                 end={{ x: 0.5, y: 0.7 }}
             />
 
-            <Animated.View
-                style={{ ...StyleSheet.absoluteFillObject, opacity }}
-            >
+            <Animated.View style={{ ...StyleSheet.absoluteFillObject, opacity }} >
                 <LinearGradient
                     colors={[colors.primary, colors.secondary, 'white']}
                     style={{ ...StyleSheet.absoluteFillObject }}
@@ -47,3 +39,10 @@ export const GradientBackground = ({ children }: GradientBackgroundProps) => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#084F6A',
+    },
+});

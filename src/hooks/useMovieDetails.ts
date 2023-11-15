@@ -1,13 +1,6 @@
 import { useState, useEffect } from 'react';
 import movieDB from '../api/MovieDB';
-import { MovieFull } from '../interfaces/movieInterface';
-import { Cast, MovieCredits } from '../interfaces';
-
-interface MovieDetails {
-    isLoading: boolean;
-    movieFull?: MovieFull;
-    cast: Cast[];
-}
+import { MovieCredits, MovieDetails, MovieFull } from '../interfaces';
 
 export const useMovieDetails = (movieId: number) => {
 
