@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, ActivityIndicator, Dimensions, StyleSheet, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useMovies } from '../hooks';
@@ -6,6 +6,7 @@ import { globalStyles } from '../../styles';
 import { MoviePoster, HorizontalSlider, GradientBackground } from '../components';
 import Carousel from 'react-native-snap-carousel';
 import { getImageColors } from '../helpers';
+import { GradientContext } from '../context';
 
 const { width: windowWidth } = Dimensions.get('window');
 
@@ -13,6 +14,24 @@ export const HomeScreen = () => {
 
     const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
     const { top } = useSafeAreaInsets();
+    const { setMainColors } = useContext(GradientContext);
+
+
+    const getPosterColors = async (index: number) => {
+        const movie = nowPlaying[index];
+        const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+        const [primary = 'grey', secondary = 'white'] = await getImageColors(uri);
+
+        setMainColors({ primary, secondary });
+    };
+
+    useEffect(() => {
+        if (nowPlaying.length > 0) {
+            getPosterColors(0);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [nowPlaying]);
 
     if (isLoading) {
         return (
@@ -21,15 +40,6 @@ export const HomeScreen = () => {
             </View>
         );
     }
-
-    const getPosterColors = async (index: number) => {
-        const movie = nowPlaying[index];
-        const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        const [primary, secondary] = await getImageColors(uri);
-
-        console.log({ primary, secondary });
-    };
 
     return (
         <GradientBackground>
@@ -54,7 +64,7 @@ export const HomeScreen = () => {
                     <HorizontalSlider title="Upcoming" movies={upcoming} />
                 </View>
             </ScrollView>
-        </GradientBackground>
+        </GradientBackground >
     );
 };
 

@@ -26,12 +26,12 @@ export const GradientProvider = ({ children }: any) => {
         secondary: 'transparent',
     });
 
-    const setMainColors = (colors: PosterColors) => {
-        setColors(colors);
+    const setMainColors = (mainColors: PosterColors) => {
+        setColors(mainColors);
     };
 
-    const setPrevMainColors = (colors: PosterColors) => {
-        setPrevColors(colors);
+    const setPrevMainColors = (prevMainColors: PosterColors) => {
+        setPrevColors(prevMainColors);
     };
 
     return (
