@@ -3,7 +3,6 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import currencyFormatter from 'currency-formatter';
 import { CastItem } from './CastItem';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { globalStyles } from '../../styles';
 import { MovieDetailsProps } from '../interfaces';
 
 export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
@@ -16,10 +15,13 @@ export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
                         name="star"
                         color="yellow"
                         size={16}
+                        style={styles.star}
                     />
                     <Text style={styles.voteAverage}>{movieFull.vote_average}</Text>
+                </View>
+                <View>
                     <Text style={styles.genresText}>
-                        - {movieFull.genres.map(g => g.name).join(', ')}
+                        {movieFull.genres.map(g => g.name).join('     ')}
                     </Text>
                 </View>
             </View>
@@ -30,7 +32,7 @@ export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
 
             {/* Budget */}
             <Text style={styles.subtitle}>Budget</Text>
-            <Text style={globalStyles.colorText}>{currencyFormatter.format(movieFull.budget, { code: 'USD' })} USD</Text>
+            <Text style={styles.budgetAmount}>{currencyFormatter.format(movieFull.budget, { code: 'USD' })} USD</Text>
 
             {/* Cast*/}
             <View style={styles.castContainer}>
@@ -50,29 +52,45 @@ export const MovieDetails = ({ movieFull, cast }: MovieDetailsProps) => {
 
 const styles = StyleSheet.create({
     mainContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     rateContainer: {
         flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#7A93AC',
+        padding: 7.5,
+        borderRadius: 10,
+    },
+    star: {
+        marginRight: 5,
     },
     voteAverage: {
-        color: 'black',
+        color: 'white',
+        fontSize: 14,
     },
     genresText: {
-        marginLeft: 5,
-        color: 'black',
+        marginLeft: 15,
+        color: 'white',
+        fontSize: 16,
     },
     subtitle: {
         fontSize: 25,
-        marginTop: 10,
+        marginTop: 20,
         fontWeight: 'bold',
-        color: '#212121',
+        color: 'white',
     },
     overview: {
-        color: 'grey',
+        color: 'white',
+        fontSize: 16,
+        lineHeight: 24,
+    },
+    budgetAmount: {
+        color: 'white',
         fontSize: 16,
     },
     castContainer: {
-        marginTop: 10,
         marginBottom: 100,
     },
     flatlist: {

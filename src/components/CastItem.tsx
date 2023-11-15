@@ -8,17 +8,17 @@ export const CastItem = ({ actor }: CastItemProps) => {
 
     return (
         <View style={styles.container}>
-            {actor &&
+            {actor.profile_path &&
                 <Image
                     source={{ uri }}
                     style={styles.image}
                 />
             }
             <View style={styles.actorInfo}>
-                <Text style={{}}>
+                <Text style={styles.actorName}>
                     {actor.name}
                 </Text>
-                <Text style={{}}>
+                <Text style={styles.character}>
                     {actor.character}
                 </Text>
             </View>
@@ -29,8 +29,9 @@ export const CastItem = ({ actor }: CastItemProps) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        backgroundColor: 'white',
-        height: 50,
+        backgroundColor: '#E1E5F2',
+        alignItems: 'center',
+        height: 60,
         borderRadius: 10,
         shadowColor: '#000',
         shadowOffset: {
@@ -43,23 +44,27 @@ const styles = StyleSheet.create({
         elevation: 9,
 
         marginRight: 20,
+        paddingVertical: 10,
         paddingRight: 10,
     },
     image: {
-        width: 50,
-        height: 50,
+        width: 60,
+        height: 60,
         borderRadius: 10,
+        resizeMode: 'contain',
     },
     actorInfo: {
+        justifyContent: 'center',
         marginLeft: 10,
-        marginTop: 4,
+        marginVertical: 4,
     },
     actorName: {
         fontSize: 18,
         fontWeight: 'bold',
+        color: 'black',
     },
     character: {
-        fontSize: 16,
-        color: '#212121',
+        fontSize: 14,
+        color: 'black',
     },
 });

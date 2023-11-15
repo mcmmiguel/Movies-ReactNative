@@ -41,12 +41,8 @@ export const DetailScreen = ({ route, navigation }: DetailsScreenProps) => {
             </View>
 
             {/* Boton para cerrar */}
-            <View
-                style={styles.backButton}
-            >
-                <TouchableOpacity
-                    onPress={() => navigation.pop()}
-                >
+            <View style={styles.backButton}>
+                <TouchableOpacity onPress={() => navigation.pop()}>
                     <Icon
                         name="arrow-back-outline"
                         size={40}
@@ -85,12 +81,12 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 18,
-        color: '#212121',
+        color: '#fff',
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#000',
+        color: '#fff',
     },
     loader: {
         marginTop: 20,
