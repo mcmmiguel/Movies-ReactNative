@@ -1,0 +1,1 @@
+export { getImageColors } from './getColors';
