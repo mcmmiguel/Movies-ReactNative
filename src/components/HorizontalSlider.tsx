@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
     },
     sliderText: {
         fontSize: 30,
+        marginBottom: 10,
+        color: 'white',
         fontWeight: 'bold',
         marginLeft: 10,
     },
