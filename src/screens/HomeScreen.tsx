@@ -1,21 +1,20 @@
 import React, { useContext, useEffect } from 'react';
-import { View, ActivityIndicator, Dimensions, StyleSheet, ScrollView } from 'react-native';
+import { View, ActivityIndicator, Dimensions, StyleSheet, ScrollView, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Carousel from 'react-native-snap-carousel';
 import { GradientContext } from '../context';
 import { useMovies } from '../hooks';
 import { getImageColors } from '../helpers';
-import { MoviePoster, HorizontalSlider, GradientBackground } from '../components';
+import { MoviePoster, HorizontalSlider, GradientBackground, SearchBar } from '../components';
 import { globalStyles } from '../../styles';
 
 const { width: windowWidth } = Dimensions.get('window');
 
 export const HomeScreen = () => {
 
-    const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
-    const { top } = useSafeAreaInsets();
     const { setMainColors } = useContext(GradientContext);
-
+    const { top } = useSafeAreaInsets();
+    const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
 
     const getPosterColors = async (index: number) => {
         const movie = nowPlaying[index];
@@ -43,6 +42,7 @@ export const HomeScreen = () => {
 
     return (
         <GradientBackground>
+            <SearchBar />
             <ScrollView>
                 <View style={{ marginTop: top + 20 }}>
                     {/* Carousel Principal */}
@@ -71,4 +71,5 @@ const styles = StyleSheet.create({
     carouselContainer: {
         height: 440,
     },
+
 });
