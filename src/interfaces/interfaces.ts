@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { Cast } from './creditsInterface';
 import { Movie, MovieFull } from './movieInterface';
 
@@ -36,4 +37,14 @@ export interface MoviesState {
     popular: Movie[];
     topRated: Movie[];
     upcoming: Movie[];
+}
+
+export interface SearchMovieResultsProps {
+    movieResults: Movie[];
+}
+
+export interface SearchBarProps {
+    searchQuery: string;
+    setSearchQuery: Dispatch<SetStateAction<string>>;
+    setSearchResults: Dispatch<SetStateAction<Movie[]>>;
 }
