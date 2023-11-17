@@ -9,13 +9,15 @@ import { MoviePoster, HorizontalSlider, GradientBackground, SearchBar } from '..
 import { globalStyles } from '../../styles';
 import { Movie } from '../interfaces';
 import { SearchMovieResults } from '../components';
+import { searchMovie } from '../api/searchMovieDB';
 
 const { width: windowWidth } = Dimensions.get('window');
 
 export const HomeScreen = () => {
 
-    const [searchResults, setSearchResults] = useState<Movie[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState<Movie[]>([]);
+
     const { setMainColors } = useContext(GradientContext);
     const [showSearchResults, setShowSearchResults] = useState(false);
     const { top } = useSafeAreaInsets();
@@ -28,6 +30,11 @@ export const HomeScreen = () => {
         const [primary = 'grey', secondary = 'white'] = await getImageColors(uri);
 
         setMainColors({ primary, secondary });
+    };
+
+    const handleSearch = async () => {
+        const results = await searchMovie(searchQuery);
+        setSearchResults(results!);
     };
 
     useEffect(() => {
@@ -57,7 +64,7 @@ export const HomeScreen = () => {
 
     return (
         <GradientBackground>
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSearchResults={setSearchResults} />
+            <SearchBar searchQuery={searchQuery} onChangeSearchQuery={setSearchQuery} onSearch={handleSearch} />
             {showSearchResults
                 ? <SearchMovieResults movieResults={searchResults} />
                 : <ScrollView>

@@ -45,6 +45,6 @@ export interface SearchMovieResultsProps {
 
 export interface SearchBarProps {
     searchQuery: string;
-    setSearchQuery: Dispatch<SetStateAction<string>>;
-    setSearchResults: Dispatch<SetStateAction<Movie[]>>;
+    onChangeSearchQuery: Dispatch<SetStateAction<string>>;
+    onSearch: (query: any) => Promise<void>;
 }

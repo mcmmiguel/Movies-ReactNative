@@ -1,22 +1,26 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { searchMovie } from '../helpers/searchMovie';
 import { SearchBarProps } from '../interfaces';
 
 const fadedWhite = 'rgba(255, 255, 255, 0.2)';
 
-export const SearchBar = ({ searchQuery, setSearchQuery, setSearchResults }: SearchBarProps) => {
+export const SearchBar = ({ searchQuery, onChangeSearchQuery, onSearch }: SearchBarProps) => {
+
+    const handleSearch = () => {
+        onSearch(searchQuery);
+    };
+
     return (
         <View style={styles.searchContainer}>
             <TextInput
                 style={styles.searchInput}
                 placeholder="Search for a movie"
                 placeholderTextColor={fadedWhite}
-                onChangeText={setSearchQuery}
+                onChangeText={onChangeSearchQuery}
                 value={searchQuery}
             />
-            <TouchableOpacity style={styles.searchButton} onPress={() => searchMovie(searchQuery, setSearchResults)}>
+            <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
                 <Icon style={styles.searchIcon} name="search" size={28} color={fadedWhite} />
             </TouchableOpacity>
         </View>
