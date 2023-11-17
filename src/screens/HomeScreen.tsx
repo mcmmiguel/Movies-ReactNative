@@ -5,10 +5,9 @@ import Carousel from 'react-native-snap-carousel';
 import { GradientContext } from '../context';
 import { useMovies } from '../hooks';
 import { getImageColors } from '../helpers';
-import { MoviePoster, HorizontalSlider, GradientBackground, SearchBar } from '../components';
+import { MoviePoster, HorizontalSlider, GradientBackground, SearchBar, SearchMovieResults } from '../components';
 import { globalStyles } from '../../styles';
 import { Movie } from '../interfaces';
-import { SearchMovieResults } from '../components';
 import { searchMovie } from '../api/searchMovieDB';
 
 const { width: windowWidth } = Dimensions.get('window');
