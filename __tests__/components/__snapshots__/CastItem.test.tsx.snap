@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests in <CastItem /> Should match with the snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#E1E5F2",
+      "borderRadius": 10,
+      "elevation": 9,
+      "flexDirection": "row",
+      "height": 60,
+      "marginRight": 20,
+      "paddingRight": 10,
+      "paddingVertical": 10,
+      "shadowColor": "#000",
+      "shadowOffset": {
+        "height": 3,
+        "width": 0,
+      },
+      "shadowOpacity": 0.29,
+      "shadowRadius": 4.65,
+    }
+  }
+>
+  <Image
+    source={
+      {
+        "uri": "https://image.tmdb.org/t/p/w500/8WCFO9lMHel1bHVYl5lj8pYEw2s.jpg",
+      }
+    }
+    style={
+      {
+        "borderRadius": 10,
+        "height": 60,
+        "resizeMode": "contain",
+        "width": 60,
+      }
+    }
+    testID="actor-image"
+  />
+  <View
+    style={
+      {
+        "justifyContent": "center",
+        "marginLeft": 10,
+        "marginVertical": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "black",
+          "fontSize": 18,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Albert Finney
+    </Text>
+    <Text
+      style={
+        {
+          "color": "black",
+          "fontSize": 14,
+        }
+      }
+    >
+      George Dunlap
+    </Text>
+  </View>
+</View>
+`;

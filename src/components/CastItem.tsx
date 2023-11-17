@@ -10,6 +10,7 @@ export const CastItem = ({ actor }: CastItemProps) => {
         <View style={styles.container}>
             {actor.profile_path &&
                 <Image
+                    testID="actor-image"
                     source={{ uri }}
                     style={styles.image}
                 />
