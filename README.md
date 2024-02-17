@@ -1,79 +1,28 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Movies App - React Native
 
-# Getting Started
+Welcome to the Movie Consultant! This application allows you to browse detailed information about movies, including cast, budget, ratings, and more. It connects to an API to fetch the latest trends, releases, and more.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Technologies Used
 
-## Step 1: Start the Metro Server
+### Main Dependencies
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- React Native (v0.72.6)
+- React (v18.2.0)
+- React Navigation (v6.1.9) for navigation between screens
+- Axios (v1.6.1) for making HTTP requests
+- React Native Image Colors (v1.5.2) for fetching dominant colors from an image
+- React Native Snap Carousel (v5a7f809e921262e4e2f646e8cfc4da85f7bd663d) for implementing image carousels
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Screenshots
+![Screenshot_1700184354](https://github.com/mcmmiguel/Movies-ReactNative/assets/112898464/63d2f25c-b2c4-4b0c-a62d-156b7d14c036)
+![Screenshot_1700184371](https://github.com/mcmmiguel/Movies-ReactNative/assets/112898464/4a492746-728d-4271-9d7a-c458e5173582)
+![Screenshot_1700184382](https://github.com/mcmmiguel/Movies-ReactNative/assets/112898464/f0230041-e176-408b-a606-a3514e458063)
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
+## Setup
 
-## Step 2: Start your Application
+1. Install dependencies by running `npm install`.
+2. Run the application on an emulator or physical device using the command `npx react-native run-android` for Android or `npx react-native run-ios` for iOS.
+3. Make sure to properly configure environment variables or API keys required to connect to the movie API.
+4. Explore the application and enjoy the movie browsing experience!
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
